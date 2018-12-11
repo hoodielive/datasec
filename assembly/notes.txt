@@ -1,0 +1,11 @@
+nasm -f elf64 thee-i-bind.nasm -o thee-i-bind.o
+ld thee-i-bind.o -o thee-i.bind
+./thee-i-bind 
+
+# then 
+open a new term
+nc localhost 4444 
+
+# bind shell 
+pwd; whoami; etc 
+
