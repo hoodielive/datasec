@@ -9,3 +9,7 @@ nc localhost 4444
 # bind shell 
 pwd; whoami; etc 
 
+# Go back an 
+objdump -D -M intel thee-i-bind.o
+
+
