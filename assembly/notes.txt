@@ -95,5 +95,5 @@ Disassembly of section .text:
   aa:	58                   	pop    rax
   ab:	0f 05                	syscall 
 
-
+xor eax,eax - this is assembly; to it's right is what the processor understands
 
