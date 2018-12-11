@@ -96,4 +96,5 @@ Disassembly of section .text:
   ab:	0f 05                	syscall 
 
 xor eax,eax - this is assembly; to it's right is what the processor understands
+eax,eax are registers xor'ed by themselves
 
