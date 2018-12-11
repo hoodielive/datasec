@@ -118,4 +118,8 @@ flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36
 * this tells you what instructions your cpu supports 
 
 # gnu - debugger gdb 
-
+Used for:
+1. Runtime Analysis
+2. Manipulating Program flow
+3. Disassembly
+4. Reverse Engineering 
