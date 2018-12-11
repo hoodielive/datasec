@@ -98,3 +98,24 @@ Disassembly of section .text:
 xor eax,eax - this is assembly; to it's right is what the processor understands
 eax,eax are registers xor'ed by themselves
 
+c code -> c preprocessor -> c compiler -> Assembler -> linker/link editor -> loader -> project address space -> primary ramk
+
+- Different processors have different assembly languages i.e. intel, arm, mips 
+IA-32 - 32 bit
+x86 - 32 bit
+x86_64 - 64 bit
+
+# figure out which mode is supported 
+lscpu 
+Architecture:        x86_64
+CPU op-mode(s):      32-bit, 64-bit
+
+# figure out which mode is supported another way 
+cat /proc/cpuinfo 
+Check flags:
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm cpuid_fault epb pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts flush_l1d
+
+* this tells you what instructions your cpu supports 
+
+# gnu - debugger gdb 
+
