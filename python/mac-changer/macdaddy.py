@@ -2,7 +2,6 @@
 
 import subprocess
 interface = "wlan0"
-command = "ifconfig"
 state =['down', 'up']
 new_mac = "00:22:33:44:55:77"
 
