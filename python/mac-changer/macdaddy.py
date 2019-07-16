@@ -2,6 +2,7 @@
 
 import subprocess
 import optparse
+import re
 
 def get_arguments():
     # UI parser object/entity 
@@ -27,4 +28,5 @@ def change_mac(interface, new_mac):
 options = get_arguments()
 
 ifconfig_result = subprocess.check_output(["ifconfig", options.interface]) 
-print(ifconfig_result)
+mac_addr_search_result = re.search(r'\w\w:\w\w:\w\w:\w\w:\w\w:\w\w', ifconfig_result.decode('utf-8'))
+print(mac_addr_search_result.group(0))
