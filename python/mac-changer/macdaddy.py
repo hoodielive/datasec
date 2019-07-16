@@ -29,4 +29,7 @@ options = get_arguments()
 
 ifconfig_result = subprocess.check_output(["ifconfig", options.interface]) 
 mac_addr_search_result = re.search(r'\w\w:\w\w:\w\w:\w\w:\w\w:\w\w', ifconfig_result.decode('utf-8'))
-print(mac_addr_search_result.group(0))
+if mac_addr_search_result:
+    print(mac_addr_search_result.group(0))
+else:
+    print('[-] Could not read MAC')
